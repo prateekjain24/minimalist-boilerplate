@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useCallback, useEffect } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '../../lib/utils';
 import { X } from 'lucide-react';
 
 // Toast types
