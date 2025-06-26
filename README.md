@@ -112,6 +112,27 @@ pnpm storybook        # Start Storybook dev server
 pnpm build:storybook  # Build static Storybook
 ```
 
+#### Storybook Documentation
+
+The design system includes comprehensive Storybook documentation with:
+
+- **38 Component Stories**: Interactive examples for all 40+ components
+- **Welcome Pages**: Introduction to the design system and getting started guide
+- **Organized Categories**: Components grouped by type for easy navigation
+- **Interactive Controls**: Test all component props in real-time
+- **Code Examples**: Copy-paste ready code for every component
+- **Responsive Testing**: Built-in viewport presets for mobile, tablet, and desktop
+- **Theme Switcher**: Toggle between light and dark backgrounds
+- **Auto-generated Docs**: TypeScript interfaces automatically documented
+
+To explore the component library:
+```bash
+cd docs/storybook
+pnpm storybook
+```
+
+Then open http://localhost:6006 in your browser.
+
 ### API Development
 
 FastAPI provides automatic API documentation:

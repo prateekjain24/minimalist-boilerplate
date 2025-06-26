@@ -1,0 +1,93 @@
+/* Storybook-specific styles */
+
+/* Improve story canvas appearance */
+.sb-show-main {
+  background-color: #ffffff;
+}
+
+/* Better spacing for centered layout */
+.sb-main-centered {
+  padding: 2rem;
+}
+
+/* Code block styling */
+.docblock-source {
+  border: 1px solid #000 !important;
+  background-color: #fafafa !important;
+}
+
+/* Ensure proper font loading */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Animation utilities for stories */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Story-specific utilities */
+.story-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .sb-show-main {
+  background-color: #000000;
+}
+
+/* Improve controls panel */
+.docblock-argstable {
+  font-size: 0.875rem;
+}
+
+/* Better focus styles for interactive elements */
+*:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Ensure modals and overlays work properly in Storybook */
+#storybook-root {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Toast container positioning */
+.toast-container {
+  position: fixed;
+  z-index: 9999;
+}
+
+/* Modal backdrop in Storybook */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+/* Tooltip z-index */
+[role="tooltip"] {
+  z-index: 10000;
+}
+
+/* Dropdown menu z-index */
+[role="menu"] {
+  z-index: 9999;
+}
