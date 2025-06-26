@@ -6,5 +6,11 @@
     "eslint",
     "typescript",
     "prettier"
-  ]
+  ],
+  "exports": {
+    "./tsconfig.base.json": "./typescript/tsconfig.base.json",
+    "./tsconfig.nextjs.json": "./typescript/tsconfig.nextjs.json",
+    "./eslint/base": "./eslint/base.js",
+    "./prettier": "./prettier/index.js"
+  }
 }
