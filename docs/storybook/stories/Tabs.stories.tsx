@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs, TabsList, TabsTrigger, TabsContent, Card, CardContent, Badge } from '@repo/design-system';
 import { User, Settings, CreditCard, Bell, Shield, Palette } from 'lucide-react';
 

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, Card, CardContent, CardHeader, CardTitle, Container, Heading, Stack, Text, Badge, Separator } from '@repo/design-system';
 
 const meta = {

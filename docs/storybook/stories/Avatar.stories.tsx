@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Avatar, AvatarImage, AvatarFallback } from '@repo/design-system';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Avatar, AvatarGroup } from '@repo/design-system';
 
 const meta = {
   title: 'Overlay & Interactive/Avatar',
@@ -8,7 +8,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'A user avatar component with image support and fallback initials.',
+        component: 'User profile images with fallback support, status indicators, and group displays.',
       },
     },
   },
@@ -17,12 +17,24 @@ const meta = {
     size: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      description: 'Size of the avatar',
+      description: 'Avatar size',
     },
-    shape: {
+    status: {
       control: 'select',
-      options: ['circle', 'square'],
-      description: 'Shape of the avatar',
+      options: [undefined, 'online', 'offline', 'away', 'busy'],
+      description: 'Status indicator',
+    },
+    src: {
+      control: 'text',
+      description: 'Image source URL',
+    },
+    alt: {
+      control: 'text',
+      description: 'Alt text for the image',
+    },
+    name: {
+      control: 'text',
+      description: 'Name for generating initials',
     },
   },
 } satisfies Meta<typeof Avatar>;
@@ -31,153 +43,86 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
-  ),
+  args: {
+    src: 'https://github.com/shadcn.png',
+    alt: 'User',
+    name: 'Claude User',
+    size: 'md',
+  },
 };
 
 export const Sizes: Story = {
   render: () => (
     <div className="flex items-center gap-4">
-      <Avatar size="xs">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>XS</AvatarFallback>
-      </Avatar>
-      <Avatar size="sm">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>SM</AvatarFallback>
-      </Avatar>
-      <Avatar size="md">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>MD</AvatarFallback>
-      </Avatar>
-      <Avatar size="lg">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>LG</AvatarFallback>
-      </Avatar>
-      <Avatar size="xl">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>XL</AvatarFallback>
-      </Avatar>
-    </div>
-  ),
-};
-
-export const Shapes: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar shape="circle">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      <Avatar shape="square">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-    </div>
-  ),
-};
-
-export const WithFallback: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar>
-        <AvatarImage src="/broken-image.jpg" alt="User" />
-        <AvatarFallback>JD</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarImage src="/broken-image.jpg" alt="User" />
-        <AvatarFallback>AB</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarImage src="/broken-image.jpg" alt="User" />
-        <AvatarFallback>XY</AvatarFallback>
-      </Avatar>
-    </div>
-  ),
-};
-
-export const FallbackOnly: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar>
-        <AvatarFallback>A</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarFallback>JD</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarFallback>XYZ</AvatarFallback>
-      </Avatar>
-    </div>
-  ),
-};
-
-export const AvatarGroup: Story = {
-  render: () => (
-    <div className="flex -space-x-3">
-      <Avatar className="border-2 border-white">
-        <AvatarImage src="https://github.com/shadcn.png" alt="User 1" />
-        <AvatarFallback>U1</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-white">
-        <AvatarImage src="https://github.com/vercel.png" alt="User 2" />
-        <AvatarFallback>U2</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-white">
-        <AvatarImage src="https://github.com/nextjs.png" alt="User 3" />
-        <AvatarFallback>U3</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-white">
-        <AvatarFallback>+5</AvatarFallback>
-      </Avatar>
+      <Avatar size="xs" src="https://github.com/shadcn.png" alt="User" name="XS" />
+      <Avatar size="sm" src="https://github.com/shadcn.png" alt="User" name="SM" />
+      <Avatar size="md" src="https://github.com/shadcn.png" alt="User" name="MD" />
+      <Avatar size="lg" src="https://github.com/shadcn.png" alt="User" name="LG" />
+      <Avatar size="xl" src="https://github.com/shadcn.png" alt="User" name="XL" />
     </div>
   ),
 };
 
 export const WithStatus: Story = {
   render: () => (
-    <div className="flex items-center gap-6">
-      <div className="relative">
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="Online user" />
-          <AvatarFallback>ON</AvatarFallback>
-        </Avatar>
-        <span className="absolute bottom-0 right-0 w-3 h-3 bg-black border-2 border-white rounded-full" />
-      </div>
-      
-      <div className="relative">
-        <Avatar>
-          <AvatarImage src="https://github.com/vercel.png" alt="Away user" />
-          <AvatarFallback>AW</AvatarFallback>
-        </Avatar>
-        <span className="absolute bottom-0 right-0 w-3 h-3 bg-black/40 border-2 border-white rounded-full" />
-      </div>
-      
-      <div className="relative">
-        <Avatar>
-          <AvatarImage src="https://github.com/nextjs.png" alt="Offline user" />
-          <AvatarFallback>OF</AvatarFallback>
-        </Avatar>
-        <span className="absolute bottom-0 right-0 w-3 h-3 bg-white border-2 border-black rounded-full" />
-      </div>
+    <div className="flex items-center gap-4">
+      <Avatar src="https://github.com/shadcn.png" alt="Online user" name="ON" status="online" />
+      <Avatar src="https://github.com/vercel.png" alt="Away user" name="AW" status="away" />
+      <Avatar src="https://github.com/nextjs.png" alt="Busy user" name="BU" status="busy" />
+      <Avatar src="https://github.com/shadcn.png" alt="Offline user" name="OF" status="offline" />
     </div>
   ),
 };
 
-export const UserCard: Story = {
+export const Fallback: Story = {
   render: () => (
-    <div className="flex items-center gap-4 p-4 border border-black">
-      <Avatar size="lg">
-        <AvatarImage src="https://github.com/shadcn.png" alt="John Doe" />
-        <AvatarFallback>JD</AvatarFallback>
-      </Avatar>
-      <div>
-        <h3 className="font-semibold text-black">John Doe</h3>
-        <p className="text-sm text-black/60">john.doe@example.com</p>
+    <div className="flex items-center gap-4">
+      <Avatar alt="John Doe" name="John Doe" />
+      <Avatar alt="Alice Brown" name="Alice Brown" />
+      <Avatar alt="X" name="X" />
+      <Avatar alt="No Name" />
+    </div>
+  ),
+};
+
+export const BrokenImage: Story = {
+  args: {
+    src: '/broken-image.jpg',
+    alt: 'User with broken image',
+    name: 'John Doe',
+  },
+};
+
+export const Group: Story = {
+  render: () => (
+    <AvatarGroup size="md">
+      <Avatar src="https://github.com/shadcn.png" alt="User 1" name="User 1" />
+      <Avatar src="https://github.com/vercel.png" alt="User 2" name="User 2" />
+      <Avatar src="https://github.com/nextjs.png" alt="User 3" name="User 3" />
+      <Avatar alt="+5" name="+5" />
+    </AvatarGroup>
+  ),
+};
+
+export const GroupWithStatus: Story = {
+  render: () => (
+    <AvatarGroup size="lg">
+      <Avatar src="https://github.com/shadcn.png" alt="Online user" name="ON" status="online" />
+      <Avatar src="https://github.com/vercel.png" alt="Away user" name="AW" status="away" />
+      <Avatar src="https://github.com/nextjs.png" alt="Offline user" name="OF" status="offline" />
+    </AvatarGroup>
+  ),
+};
+
+export const InCard: Story = {
+  render: () => (
+    <div className="w-80 border border-black p-4">
+      <div className="flex items-center gap-4">
+        <Avatar src="https://github.com/shadcn.png" alt="John Doe" name="John Doe" size="lg" />
+        <div>
+          <h3 className="font-semibold">John Doe</h3>
+          <p className="text-sm text-black/60">Software Engineer</p>
+        </div>
       </div>
     </div>
   ),
@@ -186,15 +131,9 @@ export const UserCard: Story = {
 export const Loading: Story = {
   render: () => (
     <div className="flex items-center gap-4">
-      <Avatar>
-        <AvatarFallback className="animate-pulse bg-black/10" />
-      </Avatar>
-      <Avatar size="lg">
-        <AvatarFallback className="animate-pulse bg-black/10" />
-      </Avatar>
-      <Avatar size="xl">
-        <AvatarFallback className="animate-pulse bg-black/10" />
-      </Avatar>
+      <div className="w-10 h-10 rounded-full bg-black/10 animate-pulse" />
+      <div className="w-12 h-12 rounded-full bg-black/10 animate-pulse" />
+      <div className="w-16 h-16 rounded-full bg-black/10 animate-pulse" />
     </div>
   ),
 };

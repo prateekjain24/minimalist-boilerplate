@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Select, type SelectOption } from '@repo/design-system';
 import { useState } from 'react';
 

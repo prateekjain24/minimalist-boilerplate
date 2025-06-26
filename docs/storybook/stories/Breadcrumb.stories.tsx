@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from '@repo/design-system';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Breadcrumb, BreadcrumbItem, Link } from '@repo/design-system';
 import { ChevronRight, Slash, Home, ArrowRight } from 'lucide-react';
 
 const meta = {
@@ -34,15 +34,15 @@ export const Default: Story = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <Link href="/">Home</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+        <Link href="/products">Products</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbPage>Electronics</BreadcrumbPage>
+        <span>Electronics</span>
       </BreadcrumbItem>
     </Breadcrumb>
   ),
@@ -52,22 +52,22 @@ export const WithHomeIcon: Story = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">
+        <Link href="/">
           <Home className="h-4 w-4" />
           <span className="sr-only">Home</span>
-        </BreadcrumbLink>
+        </Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+        <Link href="/dashboard">Dashboard</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/dashboard/analytics">Analytics</BreadcrumbLink>
+        <Link href="/dashboard/analytics">Analytics</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbPage>Reports</BreadcrumbPage>
+        <span>Reports</span>
       </BreadcrumbItem>
     </Breadcrumb>
   ),
@@ -80,19 +80,19 @@ export const Separators: Story = {
         <p className="text-sm font-medium mb-2">Chevron Separator</p>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/category">Category</BreadcrumbLink>
+            <Link href="/category">Category</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbPage>Page</BreadcrumbPage>
+            <span>Page</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -101,19 +101,19 @@ export const Separators: Story = {
         <p className="text-sm font-medium mb-2">Slash Separator</p>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <Slash className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/category">Category</BreadcrumbLink>
+            <Link href="/category">Category</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <Slash className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbPage>Page</BreadcrumbPage>
+            <span>Page</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -122,19 +122,19 @@ export const Separators: Story = {
         <p className="text-sm font-medium mb-2">Arrow Separator</p>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ArrowRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/category">Category</BreadcrumbLink>
+            <Link href="/category">Category</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ArrowRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbPage>Page</BreadcrumbPage>
+            <span>Page</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -143,15 +143,15 @@ export const Separators: Story = {
         <p className="text-sm font-medium mb-2">Text Separator</p>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>/</BreadcrumbSeparator>
+          <span>/</span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/category">Category</BreadcrumbLink>
+            <Link href="/category">Category</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>/</BreadcrumbSeparator>
+          <span>/</span>
           <BreadcrumbItem>
-            <BreadcrumbPage>Page</BreadcrumbPage>
+            <span>Page</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -166,15 +166,15 @@ export const Sizes: Story = {
         <p className="text-sm font-medium mb-2">Small</p>
         <Breadcrumb size="sm">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <Link href="/products">Products</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbPage>Details</BreadcrumbPage>
+            <span>Details</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -183,15 +183,15 @@ export const Sizes: Story = {
         <p className="text-sm font-medium mb-2">Medium (Default)</p>
         <Breadcrumb size="md">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <Link href="/products">Products</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbPage>Details</BreadcrumbPage>
+            <span>Details</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -200,15 +200,15 @@ export const Sizes: Story = {
         <p className="text-sm font-medium mb-2">Large</p>
         <Breadcrumb size="lg">
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <Link href="/products">Products</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbPage>Details</BreadcrumbPage>
+            <span>Details</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -220,27 +220,27 @@ export const LongPath: Story = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <Link href="/">Home</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/documents">Documents</BreadcrumbLink>
+        <Link href="/documents">Documents</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/documents/projects">Projects</BreadcrumbLink>
+        <Link href="/documents/projects">Projects</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/documents/projects/2024">2024</BreadcrumbLink>
+        <Link href="/documents/projects/2024">2024</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/documents/projects/2024/q1">Q1</BreadcrumbLink>
+        <Link href="/documents/projects/2024/q1">Q1</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbPage>Financial Report</BreadcrumbPage>
+        <span>Financial Report</span>
       </BreadcrumbItem>
     </Breadcrumb>
   ),
@@ -252,23 +252,23 @@ export const CollapsedBreadcrumb: Story = {
       <p className="text-sm text-black/60">Breadcrumb with collapsed middle items</p>
       <Breadcrumb maxItems={4}>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <Link href="/">Home</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/level1">Level 1</BreadcrumbLink>
+          <Link href="/level1">Level 1</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
           <span className="px-2">...</span>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/level4">Level 4</BreadcrumbLink>
+          <Link href="/level4">Level 4</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbPage>Current Page</BreadcrumbPage>
+          <span>Current Page</span>
         </BreadcrumbItem>
       </Breadcrumb>
     </div>
@@ -282,31 +282,31 @@ export const ECommerce: Story = {
         <h3 className="text-sm font-medium mb-2">Product Page</h3>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Store</BreadcrumbLink>
+            <Link href="/">Store</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/clothing">Clothing</BreadcrumbLink>
+            <Link href="/clothing">Clothing</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/clothing/mens">Men's</BreadcrumbLink>
+            <Link href="/clothing/mens">Men's</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/clothing/mens/shirts">Shirts</BreadcrumbLink>
+            <Link href="/clothing/mens/shirts">Shirts</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator>
+          <span>
             <ChevronRight className="h-4 w-4" />
-          </BreadcrumbSeparator>
+          </span>
           <BreadcrumbItem>
-            <BreadcrumbPage>Oxford Button-Down</BreadcrumbPage>
+            <span>Oxford Button-Down</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -315,21 +315,21 @@ export const ECommerce: Story = {
         <h3 className="text-sm font-medium mb-2">Account Section</h3>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">
+            <Link href="/">
               <Home className="h-4 w-4" />
-            </BreadcrumbLink>
+            </Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/account">My Account</BreadcrumbLink>
+            <Link href="/account">My Account</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/account/orders">Orders</BreadcrumbLink>
+            <Link href="/account/orders">Orders</Link>
           </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          <span />
           <BreadcrumbItem>
-            <BreadcrumbPage>Order #12345</BreadcrumbPage>
+            <span>Order #12345</span>
           </BreadcrumbItem>
         </Breadcrumb>
       </div>
@@ -342,23 +342,23 @@ export const FileSystem: Story = {
     <div className="space-y-4">
       <Breadcrumb>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Root</BreadcrumbLink>
+          <Link href="/">Root</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator>/</BreadcrumbSeparator>
+        <span>/</span>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/users">users</BreadcrumbLink>
+          <Link href="/users">users</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator>/</BreadcrumbSeparator>
+        <span>/</span>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/users/john">john</BreadcrumbLink>
+          <Link href="/users/john">john</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator>/</BreadcrumbSeparator>
+        <span>/</span>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/users/john/documents">documents</BreadcrumbLink>
+          <Link href="/users/john/documents">documents</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator>/</BreadcrumbSeparator>
+        <span>/</span>
         <BreadcrumbItem>
-          <BreadcrumbPage>report.pdf</BreadcrumbPage>
+          <span>report.pdf</span>
         </BreadcrumbItem>
       </Breadcrumb>
       
@@ -374,18 +374,18 @@ export const WithDropdown: Story = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        <Link href="/">Home</Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/products" className="flex items-center gap-1">
+        <Link href="/products" className="flex items-center gap-1">
           Products
           <ChevronRight className="h-3 w-3 rotate-90" />
-        </BreadcrumbLink>
+        </Link>
       </BreadcrumbItem>
-      <BreadcrumbSeparator />
+      <span />
       <BreadcrumbItem>
-        <BreadcrumbPage>Current Product</BreadcrumbPage>
+        <span>Current Product</span>
       </BreadcrumbItem>
     </Breadcrumb>
   ),
@@ -397,25 +397,25 @@ export const Responsive: Story = {
       <p className="text-sm text-black/60">Responsive breadcrumb that adapts to screen size</p>
       <Breadcrumb className="flex-wrap">
         <BreadcrumbItem>
-          <BreadcrumbLink href="/" className="whitespace-nowrap">Home</BreadcrumbLink>
+          <Link href="/" className="whitespace-nowrap">Home</Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/very-long-category-name" className="whitespace-nowrap">
+          <Link href="/very-long-category-name" className="whitespace-nowrap">
             Very Long Category Name
-          </BreadcrumbLink>
+          </Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/another-long-name" className="whitespace-nowrap">
+          <Link href="/another-long-name" className="whitespace-nowrap">
             Another Long Name
-          </BreadcrumbLink>
+          </Link>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <span />
         <BreadcrumbItem>
-          <BreadcrumbPage className="whitespace-nowrap">
+          <span className="whitespace-nowrap">
             Current Page With Long Title
-          </BreadcrumbPage>
+          </span>
         </BreadcrumbItem>
       </Breadcrumb>
     </div>

@@ -1,5 +1,5 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
-import { cn } from '../../utils';
+import React, { type ReactNode, type HTMLAttributes } from 'react';
+import { cn } from '../../utils/cn';
 
 // Table Root
 interface TableProps extends HTMLAttributes<HTMLTableElement> {

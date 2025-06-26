@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { List, ListItem, Card, CardContent, Stack } from '@repo/design-system';
 
 const meta = {

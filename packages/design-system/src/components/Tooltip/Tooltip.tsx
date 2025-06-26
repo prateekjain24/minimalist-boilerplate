@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, ReactNode, cloneElement, ReactElement } from 'react';
+import React, { useState, useRef, useEffect, type ReactNode, cloneElement, type ReactElement } from 'react';
 import { createPortal } from 'react-dom';
-import { cn } from '../../utils';
+import { cn } from '../../utils/cn';
 
 interface TooltipProps {
   children: ReactElement;

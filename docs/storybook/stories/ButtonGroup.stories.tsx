@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ButtonGroup, Button, IconButton } from '@repo/design-system';
 import { useState } from 'react';
 

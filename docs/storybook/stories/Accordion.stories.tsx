@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Container, Stack, Card, CardContent } from '@repo/design-system';
 
 const meta = {

@@ -1,5 +1,5 @@
-import React, { useState, ReactNode } from 'react';
-import { cn } from '../../utils';
+import React, { useState, type ReactNode } from 'react';
+import { cn } from '../../utils/cn';
 
 interface AvatarProps {
   src?: string;
@@ -46,7 +46,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   const getInitials = (name: string) => {
     const names = name.trim().split(' ');
     if (names.length === 1) {
-      return names[0].substring(0, 2).toUpperCase();
+      return names[0]?.substring(0, 2).toUpperCase() || '';
     }
     return names.map(n => n[0]).join('').substring(0, 2).toUpperCase();
   };

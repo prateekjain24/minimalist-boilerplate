@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Progress } from '@repo/design-system';
 import { useState, useEffect } from 'react';
 

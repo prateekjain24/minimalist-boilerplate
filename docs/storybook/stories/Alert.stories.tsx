@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, AlertDescription, AlertTitle, Button } from '@repo/design-system';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Alert, AlertDescription, AlertTitle, AlertIcon, Button } from '@repo/design-system';
 import { Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-react';
 
 const meta = {
@@ -19,10 +20,6 @@ const meta = {
       control: 'boolean',
       description: 'Whether the alert can be dismissed',
     },
-    icon: {
-      control: 'boolean',
-      description: 'Whether to show an icon',
-    },
   },
 } satisfies Meta<typeof Alert>;
 
@@ -36,7 +33,7 @@ const iconMap = {
   error: XCircle,
 };
 
-export const Default: Story = {
+export const AlertDefault: Story = {
   args: {
     variant: 'default',
     children: (
@@ -50,98 +47,111 @@ export const Default: Story = {
   },
 };
 
-export const Info: Story = {
+export const AlertInfo: Story = {
   args: {
     variant: 'info',
-    icon: true,
     children: (
       <>
-        <AlertTitle>Information</AlertTitle>
-        <AlertDescription>
-          Your session will expire in 5 minutes. Please save your work.
-        </AlertDescription>
+        <AlertIcon />
+        <div>
+          <AlertTitle>Information</AlertTitle>
+          <AlertDescription>
+            Your session will expire in 5 minutes. Please save your work.
+          </AlertDescription>
+        </div>
       </>
     ),
   },
 };
 
-export const Success: Story = {
+export const AlertSuccess: Story = {
   args: {
     variant: 'success',
-    icon: true,
     children: (
       <>
-        <AlertTitle>Success!</AlertTitle>
-        <AlertDescription>
-          Your changes have been saved successfully.
-        </AlertDescription>
+        <AlertIcon />
+        <div>
+          <AlertTitle>Success!</AlertTitle>
+          <AlertDescription>
+            Your changes have been saved successfully.
+          </AlertDescription>
+        </div>
       </>
     ),
   },
 };
 
-export const Warning: Story = {
+export const AlertWarning: Story = {
   args: {
     variant: 'warning',
-    icon: true,
     children: (
       <>
-        <AlertTitle>Warning</AlertTitle>
-        <AlertDescription>
-          This action cannot be undone. Please confirm before proceeding.
-        </AlertDescription>
+        <AlertIcon />
+        <div>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>
+            This action cannot be undone. Please confirm before proceeding.
+          </AlertDescription>
+        </div>
       </>
     ),
   },
 };
 
-export const Error: Story = {
+export const AlertError: Story = {
   args: {
     variant: 'error',
-    icon: true,
     children: (
       <>
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          Failed to connect to the server. Please check your internet connection and try again.
-        </AlertDescription>
+        <AlertIcon />
+        <div>
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            Failed to connect to the server. Please check your internet connection and try again.
+          </AlertDescription>
+        </div>
       </>
     ),
   },
 };
 
-export const WithAction: Story = {
+export const AlertWithAction: Story = {
   render: () => (
-    <Alert variant="warning" icon>
-      <AlertTitle>Storage Almost Full</AlertTitle>
-      <AlertDescription>
-        You have used 90% of your storage quota. Consider upgrading your plan or deleting old files.
-      </AlertDescription>
-      <div className="mt-4 flex gap-2">
-        <Button size="sm" variant="primary">Upgrade Plan</Button>
-        <Button size="sm" variant="secondary">Manage Files</Button>
+    <Alert variant="warning">
+      <AlertIcon />
+      <div>
+        <AlertTitle>Storage Almost Full</AlertTitle>
+        <AlertDescription>
+          You have used 90% of your storage quota. Consider upgrading your plan or deleting old files.
+        </AlertDescription>
+        <div className="mt-4 flex gap-2">
+          <Button size="sm" variant="primary">Upgrade Plan</Button>
+          <Button size="sm" variant="secondary">Manage Files</Button>
+        </div>
       </div>
     </Alert>
   ),
 };
 
-export const Dismissible: Story = {
+export const AlertDismissible: Story = {
   args: {
     variant: 'info',
     dismissible: true,
-    icon: true,
     children: (
       <>
-        <AlertTitle>New Feature Available</AlertTitle>
-        <AlertDescription>
-          Try our new dark mode feature in the settings menu.
-        </AlertDescription>
+        <AlertIcon />
+        <div>
+          <AlertTitle>New Feature Available</AlertTitle>
+          <AlertDescription>
+            Try our new dark mode feature in the settings menu.
+          </AlertDescription>
+        </div>
       </>
     ),
   },
 };
 
-export const AllVariants: Story = {
+export const AlertAllVariants: Story = {
   render: () => (
     <div className="space-y-4">
       <Alert variant="default">
@@ -149,30 +159,42 @@ export const AllVariants: Story = {
         <AlertDescription>A neutral alert for general information.</AlertDescription>
       </Alert>
       
-      <Alert variant="info" icon>
-        <AlertTitle>Info Alert</AlertTitle>
-        <AlertDescription>Provides helpful information to the user.</AlertDescription>
+      <Alert variant="info">
+        <AlertIcon />
+        <div>
+          <AlertTitle>Info Alert</AlertTitle>
+          <AlertDescription>Provides helpful information to the user.</AlertDescription>
+        </div>
       </Alert>
       
-      <Alert variant="success" icon>
-        <AlertTitle>Success Alert</AlertTitle>
-        <AlertDescription>Confirms successful completion of an action.</AlertDescription>
+      <Alert variant="success">
+        <AlertIcon />
+        <div>
+          <AlertTitle>Success Alert</AlertTitle>
+          <AlertDescription>Confirms successful completion of an action.</AlertDescription>
+        </div>
       </Alert>
       
-      <Alert variant="warning" icon>
-        <AlertTitle>Warning Alert</AlertTitle>
-        <AlertDescription>Warns about potential issues or consequences.</AlertDescription>
+      <Alert variant="warning">
+        <AlertIcon />
+        <div>
+          <AlertTitle>Warning Alert</AlertTitle>
+          <AlertDescription>Warns about potential issues or consequences.</AlertDescription>
+        </div>
       </Alert>
       
-      <Alert variant="error" icon>
-        <AlertTitle>Error Alert</AlertTitle>
-        <AlertDescription>Indicates an error or failure condition.</AlertDescription>
+      <Alert variant="error">
+        <AlertIcon />
+        <div>
+          <AlertTitle>Error Alert</AlertTitle>
+          <AlertDescription>Indicates an error or failure condition.</AlertDescription>
+        </div>
       </Alert>
     </div>
   ),
 };
 
-export const CustomContent: Story = {
+export const AlertCustomContent: Story = {
   render: () => (
     <Alert variant="default">
       <div className="flex items-start gap-4">

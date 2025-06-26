@@ -1,5 +1,5 @@
-import React, { ReactNode, MouseEvent } from 'react';
-import { cn } from '../../utils';
+import React, { type ReactNode, type MouseEvent } from 'react';
+import { cn } from '../../utils/cn';
 
 interface ChipProps {
   children: ReactNode;

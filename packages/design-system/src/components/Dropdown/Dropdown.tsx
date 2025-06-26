@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode, ReactElement, cloneElement, KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { cn } from '../../utils';
+import { cn } from '../../utils/cn';
 
 // Dropdown Context
 interface DropdownContextValue {

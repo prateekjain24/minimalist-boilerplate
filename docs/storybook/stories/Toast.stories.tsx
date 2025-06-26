@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Toast, ToastAction, ToastProvider, ToastViewport, Button, useToast } from '@repo/design-system';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ToastProvider, useToast, Button } from '@repo/design-system';
 import { CheckCircle, XCircle, AlertTriangle, Info } from 'lucide-react';
 
 const meta = {
   title: 'Components/Feedback/Toast',
-  component: Toast,
+  component: ToastProvider,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -31,7 +31,7 @@ const meta = {
       defaultValue: 5000,
     },
   },
-} satisfies Meta<typeof Toast>;
+} satisfies Meta<typeof ToastProvider>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -63,20 +63,20 @@ const ToastDemo = ({ variant, position = 'bottom-right', showAction = false, sho
             title: messages[variant || 'default'].title,
             description: messages[variant || 'default'].description,
             icon: showIcon ? icons[variant] : undefined,
-            action: showAction ? (
-              <ToastAction altText="Try again">Try again</ToastAction>
-            ) : undefined,
+            action: showAction ? {
+              label: 'Try again',
+              onClick: () => console.log('Try again clicked')
+            } : undefined,
           });
         }}
       >
         Show {variant || 'default'} toast
       </Button>
-      <ToastViewport position={position} />
     </div>
   );
 };
 
-export const Default: Story = {
+export const ToastDefault: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="default" />
@@ -84,7 +84,7 @@ export const Default: Story = {
   ),
 };
 
-export const Success: Story = {
+export const ToastSuccess: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="success" showIcon />
@@ -92,7 +92,7 @@ export const Success: Story = {
   ),
 };
 
-export const Error: Story = {
+export const ToastError: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="error" showIcon />
@@ -100,7 +100,7 @@ export const Error: Story = {
   ),
 };
 
-export const Warning: Story = {
+export const ToastWarning: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="warning" showIcon />
@@ -108,7 +108,7 @@ export const Warning: Story = {
   ),
 };
 
-export const Info: Story = {
+export const ToastInfo: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="info" showIcon />
@@ -116,7 +116,7 @@ export const Info: Story = {
   ),
 };
 
-export const WithAction: Story = {
+export const ToastWithAction: Story = {
   render: () => (
     <ToastProvider>
       <ToastDemo variant="error" showIcon showAction />
@@ -124,7 +124,7 @@ export const WithAction: Story = {
   ),
 };
 
-export const Positions: Story = {
+export const ToastPositions: Story = {
   render: () => {
     const positions = [
       'top-left', 'top-center', 'top-right',
@@ -148,7 +148,7 @@ export const Positions: Story = {
   },
 };
 
-export const MultipleToasts: Story = {
+export const ToastMultiple: Story = {
   render: () => {
     const MultipleToastDemo = () => {
       const { toast } = useToast();
@@ -183,7 +183,6 @@ export const MultipleToasts: Story = {
               Show Multiple Toasts
             </Button>
           </div>
-          <ToastViewport />
         </div>
       );
     };
@@ -196,7 +195,7 @@ export const MultipleToasts: Story = {
   },
 };
 
-export const CustomDuration: Story = {
+export const ToastCustomDuration: Story = {
   render: () => {
     const CustomDurationDemo = () => {
       const { toast } = useToast();
@@ -228,7 +227,6 @@ export const CustomDuration: Story = {
               10 Second Toast
             </Button>
           </div>
-          <ToastViewport />
         </div>
       );
     };
@@ -241,7 +239,7 @@ export const CustomDuration: Story = {
   },
 };
 
-export const RealWorldExample: Story = {
+export const ToastRealWorld: Story = {
   render: () => {
     const RealWorldDemo = () => {
       const { toast } = useToast();
@@ -269,7 +267,7 @@ export const RealWorldExample: Story = {
           title: 'Item deleted',
           description: 'The item has been removed from your list.',
           icon: <XCircle className="h-5 w-5" />,
-          action: <ToastAction altText="Undo">Undo</ToastAction>,
+          action: { label: 'Undo', onClick: () => console.log('Undo clicked') },
         });
       };
 
@@ -279,7 +277,6 @@ export const RealWorldExample: Story = {
             <Button onClick={handleSave}>Save Changes</Button>
             <Button onClick={handleDelete} variant="secondary">Delete Item</Button>
           </div>
-          <ToastViewport />
         </div>
       );
     };

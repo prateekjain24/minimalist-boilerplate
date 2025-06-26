@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Link } from '@repo/design-system';
 import { ExternalLink, Download, Mail, Phone, ArrowRight } from 'lucide-react';
 

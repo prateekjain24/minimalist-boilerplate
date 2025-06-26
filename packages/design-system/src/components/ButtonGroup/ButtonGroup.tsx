@@ -1,5 +1,5 @@
-import React, { ReactElement, cloneElement } from 'react';
-import { cn } from '../../utils';
+import React, { type ReactElement, cloneElement } from 'react';
+import { cn } from '../../utils/cn';
 
 interface ButtonGroupProps {
   children: ReactElement[];

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem, DropdownSeparator, Button, IconButton } from '@repo/design-system';
 
 const meta = {
